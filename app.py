@@ -2,15 +2,27 @@ from flask import Flask, render_template_string
 
 app = Flask(__name__)
 
-# Template HTML dùng cho tất cả các trang
+# Giao diện đã chỉnh màu và nội dung
 base_template = """
 <!DOCTYPE html>
 <html>
 <head>
     <title>{{ title }}</title>
     <style>
-        body { font-family: Arial; margin: 40px; }
-        nav a { margin-right: 10px; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #1e2a38;
+            color: #f0f0f0;
+        }
+        nav a {
+            margin-right: 15px;
+            color: #4fc3f7;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -28,8 +40,8 @@ base_template = """
 def home():
     return render_template_string(base_template,
                                   title="Home Page",
-                                  heading="Chào mừng bạn đến với Mai Trong Khoi App!",
-                                  message="Đây là trang chủ để test Lab3.")
+                                  heading="Chào mừng Mai Trọng Khôi - 22dh111734",
+                                  message="Đây là trang chủ để test lab 3.")
 
 @app.route('/about')
 def about():
